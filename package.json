@@ -1,0 +1,29 @@
+{
+  "name": "stylelint-no-mismatching-module-file",
+  "version": "1.0.0",
+  "description": "Warns or errors when using a top-level module name that does not match the file name.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronbushnell/stylelint-no-mismatching-module-file.git"
+  },
+  "keywords": [
+    "stylelint-rule",
+    "stylelint",
+    "css"
+  ],
+  "author": "Aaron Bushnell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronbushnell/stylelint-no-mismatching-module-file/issues"
+  },
+  "homepage": "https://github.com/aaronbushnell/stylelint-no-mismatching-module-file#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "stylelint": "^7.0.0"
+  },
+  "devDependencies": {
+    "stylelint-test-rule-tape": "^0.2.0"
+  }
+}
