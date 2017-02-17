@@ -36,7 +36,7 @@ module.exports = stylelint.createPlugin(ruleName, function (enabled) {
           ruleName: ruleName,
           result: result,
           node: statement,
-          message: `Your selector does not match this module's file name. Change the "${statement.selector}" selector to "${fileName}" or rename _${selectorFileName}.css to _${statement.selector.slice(1)}.css.`
+          message: `Your selector does not match this module's file name. Change the "${statement.selector}" selector to "${fileName}" or rename _${selectorFileName}.css to _${statement.selector.replace(/\./g, '')}.css.`
         });
       }
     })
