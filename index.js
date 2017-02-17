@@ -21,7 +21,7 @@ module.exports = stylelint.createPlugin(ruleName, function (enabled) {
      * ...maybe.
      */
     var path = result.opts.from.split('/');
-    if (path[4] !== 'modules') { return }
+    if (path[path.length - 2] !== 'modules') { return }
 
     var fileName = result.opts.from.match(/_(.*)/g)[0].replace(/_/g, '.').replace(/.css/g, '');
     var selectorFileName = fileName.slice(1);
