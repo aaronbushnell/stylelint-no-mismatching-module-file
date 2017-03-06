@@ -23,7 +23,8 @@ module.exports = stylelint.createPlugin(ruleName, function (enabled) {
     var path = result.opts.from.split('/');
     if (path[path.length - 2] !== 'modules') { return }
 
-    var fileName = result.opts.from.match(/_(.*)/g)[0].replace(/_/g, '.').replace(/.css/g, '');
+    var fileName = result.opts.from.match(/_(.*)/g)[0].replace(/_/g, '.').replace(/\.[^/.]+$/g, '');
+    var fileExt = result.opts.from.split('.').pop();
     var selectorFileName = fileName.slice(1);
 
     root.walkRules(function (statement) {
@@ -36,7 +37,7 @@ module.exports = stylelint.createPlugin(ruleName, function (enabled) {
           ruleName: ruleName,
           result: result,
           node: statement,
-          message: `Your selector does not match this module's file name. Change the "${statement.selector}" selector to "${fileName}" or rename _${selectorFileName}.css to _${statement.selector.replace(/\./g, '')}.css.`
+          message: `Your selector does not match this module's file name. Change the "${statement.selector}" selector to "${fileName}" or rename _${selectorFileName}.${fileExt} to _${statement.selector.replace(/\./g, '')}.${fileExt}.`
         });
       }
     })
